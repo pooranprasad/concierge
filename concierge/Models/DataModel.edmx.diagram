@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0859c6930c6042c6b0f146b93ebb8125" Name="Diagram1">
+        <EntityTypeShape EntityType="ConciergeModel.Accomodation" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConciergeModel.AccomodationProvider" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConciergeModel.AppUser" Width="1.5" PointX="0.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConciergeModel.AppUserLoyalty" Width="1.5" PointX="6" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConciergeModel.AssociationType" Width="1.5" PointX="1.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConciergeModel.City" Width="1.5" PointX="10.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConciergeModel.Contact" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConciergeModel.ContactType" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConciergeModel.Country" Width="1.5" PointX="6" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConciergeModel.CountryVisa" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConciergeModel.FamilyProfile" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConciergeModel.Loyalty" Width="1.5" PointX="3.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConciergeModel.Passport" Width="1.5" PointX="8.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConciergeModel.PassportType" Width="1.5" PointX="6" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConciergeModel.PassportVisa" Width="1.5" PointX="10.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConciergeModel.RelationType" Width="1.5" PointX="3.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConciergeModel.State" Width="1.5" PointX="8.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConciergeModel.AppTimeZone" Width="1.5" PointX="0.75" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConciergeModel.Travel" Width="1.5" PointX="3" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConciergeModel.TravelMode" Width="1.5" PointX="0.75" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConciergeModel.TravelOperator" Width="1.5" PointX="0.75" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConciergeModel.VisaApplicable" Width="1.5" PointX="10.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConciergeModel.VisaType" Width="1.5" PointX="6" PointY="17.5" IsExpanded="true" />
+        <AssociationConnector Association="ConciergeModel.FK_Accomodation_AccomodationProvider" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_Accomodation_AppUser" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_Accomodation_Travel" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_AppUserLoyalty_AppUser" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_Contact_AppUser" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_FamilyProfile_AppUser" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_Travel_AppUser" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_AppUserLoyalty_Loyalty" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_Loyalty_AssociationType" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_City_State" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_Contact_ContactType" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_CountryVisa_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_State_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_VisaApplicable_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_CountryVisa_VisaType" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_PassportVisa_CountryVisa" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_VisaApplicable_CountryVisa" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_FamilyProfile_RelationType" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_Passport_FamilyProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_Passport_PassportType" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_PassportVisa_Passport" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_Travel_TimeZone" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_Travel_TimeZone1" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_Travel_TravelMode" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_Travel_TravelOperator" ManuallyRouted="false" />
+        <AssociationConnector Association="ConciergeModel.FK_TravelOperator_TravelMode" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ConciergeModelStoreContainer" CdmEntityContainer="ConciergeEntities">
+    <EntitySetMapping Name="Accomodations">
+      <EntityTypeMapping TypeName="ConciergeModel.Accomodation">
+        <MappingFragment StoreEntitySet="Accomodation">
+          <ScalarProperty Name="AccomodationId" ColumnName="AccomodationId" />
+          <ScalarProperty Name="AppUserId" ColumnName="AppUserId" />
+          <ScalarProperty Name="AssociatedTravelId" ColumnName="AssociatedTravelId" />
+          <ScalarProperty Name="AccomodationName" ColumnName="AccomodationName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="LatLong" ColumnName="LatLong" />
+          <ScalarProperty Name="DistanceFromAirport" ColumnName="DistanceFromAirport" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="AccomodationProviderId" ColumnName="AccomodationProviderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccomodationProviders">
+      <EntityTypeMapping TypeName="ConciergeModel.AccomodationProvider">
+        <MappingFragment StoreEntitySet="AccomodationProvider">
+          <ScalarProperty Name="AccomodationProviderId" ColumnName="AccomodationProviderId" />
+          <ScalarProperty Name="ProviderName" ColumnName="ProviderName" />
+          <ScalarProperty Name="ProviderDetails" ColumnName="ProviderDetails" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppUsers">
+      <EntityTypeMapping TypeName="ConciergeModel.AppUser">
+        <MappingFragment StoreEntitySet="AppUser">
+          <ScalarProperty Name="AppUserId" ColumnName="AppUserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppUserLoyalties">
+      <EntityTypeMapping TypeName="ConciergeModel.AppUserLoyalty">
+        <MappingFragment StoreEntitySet="AppUserLoyalty">
+          <ScalarProperty Name="AppUserLoyaltyId" ColumnName="AppUserLoyaltyId" />
+          <ScalarProperty Name="AppUserId" ColumnName="AppUserId" />
+          <ScalarProperty Name="LoyaltyId" ColumnName="LoyaltyId" />
+          <ScalarProperty Name="LoyaltyNumber" ColumnName="LoyaltyNumber" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssociationTypes">
+      <EntityTypeMapping TypeName="ConciergeModel.AssociationType">
+        <MappingFragment StoreEntitySet="AssociationType">
+          <ScalarProperty Name="AssociationTypeId" ColumnName="AssociationTypeId" />
+          <ScalarProperty Name="AssociationTypeName" ColumnName="AssociationTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="ConciergeModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="IsStateCapital" ColumnName="IsStateCapital" />
+          <ScalarProperty Name="IsCountryCapital" ColumnName="IsCountryCapital" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="ConciergeModel.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="AppUserId" ColumnName="AppUserId" />
+          <ScalarProperty Name="ContactTypeId" ColumnName="ContactTypeId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="PhoneNumber1" ColumnName="PhoneNumber1" />
+          <ScalarProperty Name="PhoneNumber2" ColumnName="PhoneNumber2" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="LatLong" ColumnName="LatLong" />
+          <ScalarProperty Name="IsEmergencyContact" ColumnName="IsEmergencyContact" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactTypes">
+      <EntityTypeMapping TypeName="ConciergeModel.ContactType">
+        <MappingFragment StoreEntitySet="ContactType">
+          <ScalarProperty Name="ContactTypeId" ColumnName="ContactTypeId" />
+          <ScalarProperty Name="ContactTypeName" ColumnName="ContactTypeName" />
+          <ScalarProperty Name="ReferenceId" ColumnName="ReferenceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="ConciergeModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CountryVisas">
+      <EntityTypeMapping TypeName="ConciergeModel.CountryVisa">
+        <MappingFragment StoreEntitySet="CountryVisa">
+          <ScalarProperty Name="CountryVisaId" ColumnName="CountryVisaId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="VisaType" ColumnName="VisaType" />
+          <ScalarProperty Name="VisaName" ColumnName="VisaName" />
+          <ScalarProperty Name="VisaDescription" ColumnName="VisaDescription" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="CostDescription" ColumnName="CostDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FamilyProfiles">
+      <EntityTypeMapping TypeName="ConciergeModel.FamilyProfile">
+        <MappingFragment StoreEntitySet="FamilyProfile">
+          <ScalarProperty Name="FamilyId" ColumnName="FamilyId" />
+          <ScalarProperty Name="PassportTypeId" ColumnName="PassportTypeId" />
+          <ScalarProperty Name="AppUserId" ColumnName="AppUserId" />
+          <ScalarProperty Name="RelationTypeId" ColumnName="RelationTypeId" />
+          <ScalarProperty Name="Salutation" ColumnName="Salutation" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Loyalties">
+      <EntityTypeMapping TypeName="ConciergeModel.Loyalty">
+        <MappingFragment StoreEntitySet="Loyalty">
+          <ScalarProperty Name="LoyaltyId" ColumnName="LoyaltyId" />
+          <ScalarProperty Name="AssociationTypeId" ColumnName="AssociationTypeId" />
+          <ScalarProperty Name="AssociationReferenceId" ColumnName="AssociationReferenceId" />
+          <ScalarProperty Name="LoyaltyName" ColumnName="LoyaltyName" />
+          <ScalarProperty Name="LoyaltyDescription" ColumnName="LoyaltyDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Passports">
+      <EntityTypeMapping TypeName="ConciergeModel.Passport">
+        <MappingFragment StoreEntitySet="Passport">
+          <ScalarProperty Name="PassportId" ColumnName="PassportId" />
+          <ScalarProperty Name="FamilyId" ColumnName="FamilyId" />
+          <ScalarProperty Name="PassportTypeId" ColumnName="PassportTypeId" />
+          <ScalarProperty Name="Passpot" ColumnName="Passpot" />
+          <ScalarProperty Name="PassportNumber" ColumnName="PassportNumber" />
+          <ScalarProperty Name="PassportIssuedPlace" ColumnName="PassportIssuedPlace" />
+          <ScalarProperty Name="PassportIssueDate" ColumnName="PassportIssueDate" />
+          <ScalarProperty Name="PassportExpiryDate" ColumnName="PassportExpiryDate" />
+          <ScalarProperty Name="NationalityId" ColumnName="NationalityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PassportTypes">
+      <EntityTypeMapping TypeName="ConciergeModel.PassportType">
+        <MappingFragment StoreEntitySet="PassportType">
+          <ScalarProperty Name="PassportTypeId" ColumnName="PassportTypeId" />
+          <ScalarProperty Name="PassportTypeName" ColumnName="PassportTypeName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PassportVisas">
+      <EntityTypeMapping TypeName="ConciergeModel.PassportVisa">
+        <MappingFragment StoreEntitySet="PassportVisa">
+          <ScalarProperty Name="PassportVisaId" ColumnName="PassportVisaId" />
+          <ScalarProperty Name="PassportId" ColumnName="PassportId" />
+          <ScalarProperty Name="CountryVisaId" ColumnName="CountryVisaId" />
+          <ScalarProperty Name="VisaIssueDate" ColumnName="VisaIssueDate" />
+          <ScalarProperty Name="VisaExpiryDate" ColumnName="VisaExpiryDate" />
+          <ScalarProperty Name="VisaIssuePlace" ColumnName="VisaIssuePlace" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RelationTypes">
+      <EntityTypeMapping TypeName="ConciergeModel.RelationType">
+        <MappingFragment StoreEntitySet="RelationType">
+          <ScalarProperty Name="RelationTypeId" ColumnName="RelationTypeId" />
+          <ScalarProperty Name="RelationTypeName" ColumnName="RelationTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="ConciergeModel.State">
+        <MappingFragment StoreEntitySet="State">
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppTimeZones">
+      <EntityTypeMapping TypeName="ConciergeModel.AppTimeZone">
+        <MappingFragment StoreEntitySet="TimeZone">
+          <ScalarProperty Name="TimeZoneId" ColumnName="TimeZoneId" />
+          <ScalarProperty Name="TimeZoneName" ColumnName="TimeZoneName" />
+          <ScalarProperty Name="TimeZoneDifference" ColumnName="TimeZoneDifference" />
+          <ScalarProperty Name="TimeZoneCode" ColumnName="TimeZoneCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Travels">
+      <EntityTypeMapping TypeName="ConciergeModel.Travel">
+        <MappingFragment StoreEntitySet="Travel">
+          <ScalarProperty Name="TravelId" ColumnName="TravelId" />
+          <ScalarProperty Name="AppUserId" ColumnName="AppUserId" />
+          <ScalarProperty Name="TravelModeId" ColumnName="TravelModeId" />
+          <ScalarProperty Name="CountryVisiting" ColumnName="CountryVisiting" />
+          <ScalarProperty Name="CityVisiting" ColumnName="CityVisiting" />
+          <ScalarProperty Name="TravelStartDate" ColumnName="TravelStartDate" />
+          <ScalarProperty Name="TravelStartTimezoneId" ColumnName="TravelStartTimezoneId" />
+          <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+          <ScalarProperty Name="ArrivalTimeZoneId" ColumnName="ArrivalTimeZoneId" />
+          <ScalarProperty Name="TravelReferenceId" ColumnName="TravelReferenceId" />
+          <ScalarProperty Name="VehicleName" ColumnName="VehicleName" />
+          <ScalarProperty Name="TravelOperatorId" ColumnName="TravelOperatorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TravelModes">
+      <EntityTypeMapping TypeName="ConciergeModel.TravelMode">
+        <MappingFragment StoreEntitySet="TravelMode">
+          <ScalarProperty Name="TravelModeId" ColumnName="TravelModeId" />
+          <ScalarProperty Name="TravelModeName" ColumnName="TravelModeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TravelOperators">
+      <EntityTypeMapping TypeName="ConciergeModel.TravelOperator">
+        <MappingFragment StoreEntitySet="TravelOperator">
+          <ScalarProperty Name="TravelOperatorId" ColumnName="TravelOperatorId" />
+          <ScalarProperty Name="TravelModeId" ColumnName="TravelModeId" />
+          <ScalarProperty Name="OperatorName" ColumnName="OperatorName" />
+          <ScalarProperty Name="OperatorNationality" ColumnName="OperatorNationality" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VisaApplicables">
+      <EntityTypeMapping TypeName="ConciergeModel.VisaApplicable">
+        <MappingFragment StoreEntitySet="VisaApplicable">
+          <ScalarProperty Name="VisaApplicableId" ColumnName="VisaApplicableId" />
+          <ScalarProperty Name="CountryVisaId" ColumnName="CountryVisaId" />
+          <ScalarProperty Name="ApplicableCountry" ColumnName="ApplicableCountry" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VisaTypes">
+      <EntityTypeMapping TypeName="ConciergeModel.VisaType">
+        <MappingFragment StoreEntitySet="VisaType">
+          <ScalarProperty Name="VisaTypeId" ColumnName="VisaTypeId" />
+          <ScalarProperty Name="VisaTypeName" ColumnName="VisaTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

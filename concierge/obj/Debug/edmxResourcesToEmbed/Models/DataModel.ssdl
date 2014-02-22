@@ -1,0 +1,684 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ConciergeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Accomodation">
+    <Key>
+      <PropertyRef Name="AccomodationId" />
+    </Key>
+    <Property Name="AccomodationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AppUserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AssociatedTravelId" Type="uniqueidentifier" />
+    <Property Name="AccomodationName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ContactId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LatLong" Type="nvarchar" MaxLength="50" />
+    <Property Name="DistanceFromAirport" Type="float" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
+    <Property Name="EndDate" Type="date" />
+    <Property Name="AccomodationProviderId" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="AccomodationProvider">
+    <Key>
+      <PropertyRef Name="AccomodationProviderId" />
+    </Key>
+    <Property Name="AccomodationProviderId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ProviderName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProviderDetails" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AppUser">
+    <Key>
+      <PropertyRef Name="AppUserId" />
+    </Key>
+    <Property Name="AppUserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Token" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="AppUserLoyalty">
+    <Key>
+      <PropertyRef Name="AppUserLoyaltyId" />
+    </Key>
+    <Property Name="AppUserLoyaltyId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AppUserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LoyaltyId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LoyaltyNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Points" Type="float" />
+  </EntityType>
+  <EntityType Name="AssociationType">
+    <Key>
+      <PropertyRef Name="AssociationTypeId" />
+    </Key>
+    <Property Name="AssociationTypeId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AssociationTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="CityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateId" Type="int" Nullable="false" />
+    <Property Name="CityName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsStateCapital" Type="bit" />
+    <Property Name="IsCountryCapital" Type="bit" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AppUserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ContactTypeId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneNumber1" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneNumber2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="100" />
+    <Property Name="AddressLine1" Type="nvarchar" MaxLength="100" />
+    <Property Name="AddressLine2" Type="nvarchar" MaxLength="100" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="State" Type="nvarchar" MaxLength="50" />
+    <Property Name="CountryId" Type="uniqueidentifier" />
+    <Property Name="LatLong" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsEmergencyContact" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContactType">
+    <Key>
+      <PropertyRef Name="ContactTypeId" />
+    </Key>
+    <Property Name="ContactTypeId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ContactTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ReferenceId" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CountryCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Currency" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CountryVisa">
+    <Key>
+      <PropertyRef Name="CountryVisaId" />
+    </Key>
+    <Property Name="CountryVisaId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="VisaType" Type="tinyint" Nullable="false" />
+    <Property Name="VisaName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="VisaDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Cost" Type="float" Nullable="false" />
+    <Property Name="CostDescription" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="FamilyProfile">
+    <Key>
+      <PropertyRef Name="FamilyId" />
+    </Key>
+    <Property Name="FamilyId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PassportTypeId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AppUserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RelationTypeId" Type="tinyint" Nullable="false" />
+    <Property Name="Salutation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nationality" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Loyalty">
+    <Key>
+      <PropertyRef Name="LoyaltyId" />
+    </Key>
+    <Property Name="LoyaltyId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AssociationTypeId" Type="uniqueidentifier" />
+    <Property Name="AssociationReferenceId" Type="uniqueidentifier" />
+    <Property Name="LoyaltyName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LoyaltyDescription" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Passport">
+    <Key>
+      <PropertyRef Name="PassportId" />
+    </Key>
+    <Property Name="PassportId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FamilyId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PassportTypeId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Passpot" Type="nchar" MaxLength="10" />
+    <Property Name="PassportNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PassportIssuedPlace" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PassportIssueDate" Type="date" Nullable="false" />
+    <Property Name="PassportExpiryDate" Type="date" Nullable="false" />
+    <Property Name="NationalityId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PassportType">
+    <Key>
+      <PropertyRef Name="PassportTypeId" />
+    </Key>
+    <Property Name="PassportTypeId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PassportTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PassportVisa">
+    <Key>
+      <PropertyRef Name="PassportVisaId" />
+    </Key>
+    <Property Name="PassportVisaId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PassportId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CountryVisaId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="VisaIssueDate" Type="date" Nullable="false" />
+    <Property Name="VisaExpiryDate" Type="date" Nullable="false" />
+    <Property Name="VisaIssuePlace" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RelationType">
+    <Key>
+      <PropertyRef Name="RelationTypeId" />
+    </Key>
+    <Property Name="RelationTypeId" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RelationTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="StateId" />
+    </Key>
+    <Property Name="StateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TimeZone">
+    <Key>
+      <PropertyRef Name="TimeZoneId" />
+    </Key>
+    <Property Name="TimeZoneId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TimeZoneName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TimeZoneDifference" Type="float" Nullable="false" />
+    <Property Name="TimeZoneCode" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Travel">
+    <Key>
+      <PropertyRef Name="TravelId" />
+    </Key>
+    <Property Name="TravelId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AppUserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TravelModeId" Type="tinyint" />
+    <Property Name="CountryVisiting" Type="int" Nullable="false" />
+    <Property Name="CityVisiting" Type="int" />
+    <Property Name="TravelStartDate" Type="datetime" Nullable="false" />
+    <Property Name="TravelStartTimezoneId" Type="int" />
+    <Property Name="ArrivalDate" Type="datetime" Nullable="false" />
+    <Property Name="ArrivalTimeZoneId" Type="int" />
+    <Property Name="TravelReferenceId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="VehicleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TravelOperatorId" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="TravelMode">
+    <Key>
+      <PropertyRef Name="TravelModeId" />
+    </Key>
+    <Property Name="TravelModeId" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TravelModeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TravelOperator">
+    <Key>
+      <PropertyRef Name="TravelOperatorId" />
+    </Key>
+    <Property Name="TravelOperatorId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TravelModeId" Type="tinyint" Nullable="false" />
+    <Property Name="OperatorName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OperatorNationality" Type="int" />
+  </EntityType>
+  <EntityType Name="VisaApplicable">
+    <Key>
+      <PropertyRef Name="VisaApplicableId" />
+    </Key>
+    <Property Name="VisaApplicableId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CountryVisaId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ApplicableCountry" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="VisaType">
+    <Key>
+      <PropertyRef Name="VisaTypeId" />
+    </Key>
+    <Property Name="VisaTypeId" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VisaTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Accomodation_AccomodationProvider">
+    <End Role="AccomodationProvider" Type="Self.AccomodationProvider" Multiplicity="0..1" />
+    <End Role="Accomodation" Type="Self.Accomodation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccomodationProvider">
+        <PropertyRef Name="AccomodationProviderId" />
+      </Principal>
+      <Dependent Role="Accomodation">
+        <PropertyRef Name="AccomodationProviderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Accomodation_AppUser">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+    <End Role="Accomodation" Type="Self.Accomodation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="AppUserId" />
+      </Principal>
+      <Dependent Role="Accomodation">
+        <PropertyRef Name="AppUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Accomodation_Travel">
+    <End Role="Travel" Type="Self.Travel" Multiplicity="0..1" />
+    <End Role="Accomodation" Type="Self.Accomodation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Travel">
+        <PropertyRef Name="TravelId" />
+      </Principal>
+      <Dependent Role="Accomodation">
+        <PropertyRef Name="AssociatedTravelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppUserLoyalty_AppUser">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+    <End Role="AppUserLoyalty" Type="Self.AppUserLoyalty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="AppUserId" />
+      </Principal>
+      <Dependent Role="AppUserLoyalty">
+        <PropertyRef Name="AppUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppUserLoyalty_Loyalty">
+    <End Role="Loyalty" Type="Self.Loyalty" Multiplicity="1" />
+    <End Role="AppUserLoyalty" Type="Self.AppUserLoyalty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Loyalty">
+        <PropertyRef Name="LoyaltyId" />
+      </Principal>
+      <Dependent Role="AppUserLoyalty">
+        <PropertyRef Name="LoyaltyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_City_State">
+    <End Role="State" Type="Self.State" Multiplicity="1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contact_AppUser">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+    <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="AppUserId" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="AppUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contact_ContactType">
+    <End Role="ContactType" Type="Self.ContactType" Multiplicity="1" />
+    <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContactType">
+        <PropertyRef Name="ContactTypeId" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="ContactTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CountryVisa_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="CountryVisa" Type="Self.CountryVisa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="CountryVisa">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CountryVisa_VisaType">
+    <End Role="VisaType" Type="Self.VisaType" Multiplicity="1" />
+    <End Role="CountryVisa" Type="Self.CountryVisa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VisaType">
+        <PropertyRef Name="VisaTypeId" />
+      </Principal>
+      <Dependent Role="CountryVisa">
+        <PropertyRef Name="VisaType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FamilyProfile_AppUser">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+    <End Role="FamilyProfile" Type="Self.FamilyProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="AppUserId" />
+      </Principal>
+      <Dependent Role="FamilyProfile">
+        <PropertyRef Name="AppUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FamilyProfile_RelationType">
+    <End Role="RelationType" Type="Self.RelationType" Multiplicity="1" />
+    <End Role="FamilyProfile" Type="Self.FamilyProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RelationType">
+        <PropertyRef Name="RelationTypeId" />
+      </Principal>
+      <Dependent Role="FamilyProfile">
+        <PropertyRef Name="RelationTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Loyalty_AssociationType">
+    <End Role="AssociationType" Type="Self.AssociationType" Multiplicity="0..1" />
+    <End Role="Loyalty" Type="Self.Loyalty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AssociationType">
+        <PropertyRef Name="AssociationTypeId" />
+      </Principal>
+      <Dependent Role="Loyalty">
+        <PropertyRef Name="AssociationTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Passport_FamilyProfile">
+    <End Role="FamilyProfile" Type="Self.FamilyProfile" Multiplicity="1" />
+    <End Role="Passport" Type="Self.Passport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FamilyProfile">
+        <PropertyRef Name="FamilyId" />
+      </Principal>
+      <Dependent Role="Passport">
+        <PropertyRef Name="FamilyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Passport_PassportType">
+    <End Role="PassportType" Type="Self.PassportType" Multiplicity="1" />
+    <End Role="Passport" Type="Self.Passport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PassportType">
+        <PropertyRef Name="PassportTypeId" />
+      </Principal>
+      <Dependent Role="Passport">
+        <PropertyRef Name="PassportTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PassportVisa_CountryVisa">
+    <End Role="CountryVisa" Type="Self.CountryVisa" Multiplicity="1" />
+    <End Role="PassportVisa" Type="Self.PassportVisa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CountryVisa">
+        <PropertyRef Name="CountryVisaId" />
+      </Principal>
+      <Dependent Role="PassportVisa">
+        <PropertyRef Name="CountryVisaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PassportVisa_Passport">
+    <End Role="Passport" Type="Self.Passport" Multiplicity="1" />
+    <End Role="PassportVisa" Type="Self.PassportVisa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Passport">
+        <PropertyRef Name="PassportId" />
+      </Principal>
+      <Dependent Role="PassportVisa">
+        <PropertyRef Name="PassportId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_State_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="State" Type="Self.State" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="State">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Travel_AppUser">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+    <End Role="Travel" Type="Self.Travel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="AppUserId" />
+      </Principal>
+      <Dependent Role="Travel">
+        <PropertyRef Name="AppUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Travel_TimeZone">
+    <End Role="TimeZone" Type="Self.TimeZone" Multiplicity="0..1" />
+    <End Role="Travel" Type="Self.Travel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TimeZone">
+        <PropertyRef Name="TimeZoneId" />
+      </Principal>
+      <Dependent Role="Travel">
+        <PropertyRef Name="ArrivalTimeZoneId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Travel_TimeZone1">
+    <End Role="TimeZone" Type="Self.TimeZone" Multiplicity="0..1" />
+    <End Role="Travel" Type="Self.Travel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TimeZone">
+        <PropertyRef Name="TimeZoneId" />
+      </Principal>
+      <Dependent Role="Travel">
+        <PropertyRef Name="TravelStartTimezoneId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Travel_TravelMode">
+    <End Role="TravelMode" Type="Self.TravelMode" Multiplicity="0..1" />
+    <End Role="Travel" Type="Self.Travel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TravelMode">
+        <PropertyRef Name="TravelModeId" />
+      </Principal>
+      <Dependent Role="Travel">
+        <PropertyRef Name="TravelModeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Travel_TravelOperator">
+    <End Role="TravelOperator" Type="Self.TravelOperator" Multiplicity="0..1" />
+    <End Role="Travel" Type="Self.Travel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TravelOperator">
+        <PropertyRef Name="TravelOperatorId" />
+      </Principal>
+      <Dependent Role="Travel">
+        <PropertyRef Name="TravelOperatorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TravelOperator_TravelMode">
+    <End Role="TravelMode" Type="Self.TravelMode" Multiplicity="1" />
+    <End Role="TravelOperator" Type="Self.TravelOperator" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TravelMode">
+        <PropertyRef Name="TravelModeId" />
+      </Principal>
+      <Dependent Role="TravelOperator">
+        <PropertyRef Name="TravelModeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VisaApplicable_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="VisaApplicable" Type="Self.VisaApplicable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="VisaApplicable">
+        <PropertyRef Name="ApplicableCountry" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VisaApplicable_CountryVisa">
+    <End Role="CountryVisa" Type="Self.CountryVisa" Multiplicity="1" />
+    <End Role="VisaApplicable" Type="Self.VisaApplicable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CountryVisa">
+        <PropertyRef Name="CountryVisaId" />
+      </Principal>
+      <Dependent Role="VisaApplicable">
+        <PropertyRef Name="CountryVisaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ConciergeModelStoreContainer">
+    <EntitySet Name="Accomodation" EntityType="Self.Accomodation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AccomodationProvider" EntityType="Self.AccomodationProvider" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppUser" EntityType="Self.AppUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppUserLoyalty" EntityType="Self.AppUserLoyalty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AssociationType" EntityType="Self.AssociationType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContactType" EntityType="Self.ContactType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CountryVisa" EntityType="Self.CountryVisa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FamilyProfile" EntityType="Self.FamilyProfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Loyalty" EntityType="Self.Loyalty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Passport" EntityType="Self.Passport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PassportType" EntityType="Self.PassportType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PassportVisa" EntityType="Self.PassportVisa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RelationType" EntityType="Self.RelationType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TimeZone" EntityType="Self.TimeZone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Travel" EntityType="Self.Travel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TravelMode" EntityType="Self.TravelMode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TravelOperator" EntityType="Self.TravelOperator" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VisaApplicable" EntityType="Self.VisaApplicable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VisaType" EntityType="Self.VisaType" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Accomodation_AccomodationProvider" Association="Self.FK_Accomodation_AccomodationProvider">
+      <End Role="AccomodationProvider" EntitySet="AccomodationProvider" />
+      <End Role="Accomodation" EntitySet="Accomodation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Accomodation_AppUser" Association="Self.FK_Accomodation_AppUser">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="Accomodation" EntitySet="Accomodation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Accomodation_Travel" Association="Self.FK_Accomodation_Travel">
+      <End Role="Travel" EntitySet="Travel" />
+      <End Role="Accomodation" EntitySet="Accomodation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppUserLoyalty_AppUser" Association="Self.FK_AppUserLoyalty_AppUser">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="AppUserLoyalty" EntitySet="AppUserLoyalty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppUserLoyalty_Loyalty" Association="Self.FK_AppUserLoyalty_Loyalty">
+      <End Role="Loyalty" EntitySet="Loyalty" />
+      <End Role="AppUserLoyalty" EntitySet="AppUserLoyalty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_City_State" Association="Self.FK_City_State">
+      <End Role="State" EntitySet="State" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contact_AppUser" Association="Self.FK_Contact_AppUser">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="Contact" EntitySet="Contact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contact_ContactType" Association="Self.FK_Contact_ContactType">
+      <End Role="ContactType" EntitySet="ContactType" />
+      <End Role="Contact" EntitySet="Contact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CountryVisa_Country" Association="Self.FK_CountryVisa_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="CountryVisa" EntitySet="CountryVisa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CountryVisa_VisaType" Association="Self.FK_CountryVisa_VisaType">
+      <End Role="VisaType" EntitySet="VisaType" />
+      <End Role="CountryVisa" EntitySet="CountryVisa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FamilyProfile_AppUser" Association="Self.FK_FamilyProfile_AppUser">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="FamilyProfile" EntitySet="FamilyProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FamilyProfile_RelationType" Association="Self.FK_FamilyProfile_RelationType">
+      <End Role="RelationType" EntitySet="RelationType" />
+      <End Role="FamilyProfile" EntitySet="FamilyProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Loyalty_AssociationType" Association="Self.FK_Loyalty_AssociationType">
+      <End Role="AssociationType" EntitySet="AssociationType" />
+      <End Role="Loyalty" EntitySet="Loyalty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Passport_FamilyProfile" Association="Self.FK_Passport_FamilyProfile">
+      <End Role="FamilyProfile" EntitySet="FamilyProfile" />
+      <End Role="Passport" EntitySet="Passport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Passport_PassportType" Association="Self.FK_Passport_PassportType">
+      <End Role="PassportType" EntitySet="PassportType" />
+      <End Role="Passport" EntitySet="Passport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PassportVisa_CountryVisa" Association="Self.FK_PassportVisa_CountryVisa">
+      <End Role="CountryVisa" EntitySet="CountryVisa" />
+      <End Role="PassportVisa" EntitySet="PassportVisa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PassportVisa_Passport" Association="Self.FK_PassportVisa_Passport">
+      <End Role="Passport" EntitySet="Passport" />
+      <End Role="PassportVisa" EntitySet="PassportVisa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_State_Country" Association="Self.FK_State_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="State" EntitySet="State" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Travel_AppUser" Association="Self.FK_Travel_AppUser">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="Travel" EntitySet="Travel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Travel_TimeZone" Association="Self.FK_Travel_TimeZone">
+      <End Role="TimeZone" EntitySet="TimeZone" />
+      <End Role="Travel" EntitySet="Travel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Travel_TimeZone1" Association="Self.FK_Travel_TimeZone1">
+      <End Role="TimeZone" EntitySet="TimeZone" />
+      <End Role="Travel" EntitySet="Travel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Travel_TravelMode" Association="Self.FK_Travel_TravelMode">
+      <End Role="TravelMode" EntitySet="TravelMode" />
+      <End Role="Travel" EntitySet="Travel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Travel_TravelOperator" Association="Self.FK_Travel_TravelOperator">
+      <End Role="TravelOperator" EntitySet="TravelOperator" />
+      <End Role="Travel" EntitySet="Travel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TravelOperator_TravelMode" Association="Self.FK_TravelOperator_TravelMode">
+      <End Role="TravelMode" EntitySet="TravelMode" />
+      <End Role="TravelOperator" EntitySet="TravelOperator" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VisaApplicable_Country" Association="Self.FK_VisaApplicable_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="VisaApplicable" EntitySet="VisaApplicable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VisaApplicable_CountryVisa" Association="Self.FK_VisaApplicable_CountryVisa">
+      <End Role="CountryVisa" EntitySet="CountryVisa" />
+      <End Role="VisaApplicable" EntitySet="VisaApplicable" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
